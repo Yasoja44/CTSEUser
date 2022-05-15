@@ -4,9 +4,9 @@ export const LOG_OUT = "LOG OUT";
 export const AUTH_ERROR = "AUTHENTICATION ERROR";
 export const LOGIN_SUCCESS = "LOGIN SUCCESS";
 
-export const SERVER_ADDRESS = getServerPath();
+// export const SERVER_ADDRESS = getServerPath();
 
-export const CLIENT_ADDRESS = getClientPath();
+// export const CLIENT_ADDRESS = getClientPath();
 
 // function getClientPath() {
 
