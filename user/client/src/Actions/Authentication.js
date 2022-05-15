@@ -13,7 +13,7 @@ export const LoadUserOther = async () => {
     if (localStorage.getItem('token')) {
         setToken(localStorage.getItem('token'));
     }
-    return await axios.get('10.48.7.88:5000/users');
+    return await axios.get('/users');
 }
 
 export const LoadUser = () => async dispatch => {
@@ -21,7 +21,7 @@ export const LoadUser = () => async dispatch => {
         setToken(localStorage.getItem('token'));
     }
     try {
-        const response = await axios.get('10.48.7.88:5000/users');
+        const response = await axios.get('/users');
         const position = response.data.position;
         console.log(position);
         dispatch({
@@ -61,7 +61,7 @@ export const LoginUser = (email, password) => async dispatch => {
             }
         }
         const body = JSON.stringify({email, password})
-        const response1 = await axios.post('10.48.7.88:5000/users/login', body, config);
+        const response1 = await axios.post('/users/login', body, config);
         if (response1.data !== undefined) {
             LoggedAlert();
         }

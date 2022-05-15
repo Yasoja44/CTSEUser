@@ -93,7 +93,7 @@ class Reset extends Component {
             let message = "Password Error"
             RegisterFail(message);
         }else {
-            axios.post('10.48.7.88:5000/users/reset_password', user, {
+            axios.post('/users/reset_password', user, {
                 headers: {Authorization: this.state.token}
             })
                 .then(response => {

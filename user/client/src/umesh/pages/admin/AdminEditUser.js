@@ -42,7 +42,7 @@ class AdminEditUser extends Component {
         this.onChangePassword=this.onChangePassword.bind(this);
     }
     componentDidMount() {
-        axios.get(`10.48.7.88:5000/users/${this.props.match.params.id}`)
+        axios.get(`/users/${this.props.match.params.id}`)
             .then(response=>{
                 this.setState({
                     firstname:response.data.data.firstName,
@@ -71,7 +71,7 @@ class AdminEditUser extends Component {
             UpdateFail(message);
         }else {
             console.log('DATA TO SEND', user);
-            axios.post(`10.48.7.88:5000/users/admin_update_password/${this.props.match.params.id}`, user)
+            axios.post(`/users/admin_update_password/${this.props.match.params.id}`, user)
                 .then(response => {
                     UpdateAlert();
                 })
@@ -92,7 +92,7 @@ class AdminEditUser extends Component {
             position: this.state.position1
         }
         console.log('DATA TO SEND', user);
-        axios.put(`10.48.7.88:5000/users/admin_update/${this.props.match.params.id}`, user)
+        axios.put(`/users/admin_update/${this.props.match.params.id}`, user)
             .then(response => {
                 UpdateAlert();
                 this.props.history.push('/getAll');

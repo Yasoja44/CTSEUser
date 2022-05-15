@@ -69,7 +69,7 @@ class Forgot extends Component {
             let message = "Forgot Error"
             ForgotFail(message);
         }else {
-            axios.post('10.48.7.88:5000/users/forgot_password', forgot)
+            axios.post('/users/forgot_password', forgot)
                 .then(response => {
                     ForgotAlert();
                     this.setState({

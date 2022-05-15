@@ -140,7 +140,7 @@ class AdminRegister extends Component {
             let message = "Please enter the valid phone No"
             RegisterFail(message);
         }else {
-            axios.post( '10.48.7.88:5000/users/admin_register', user)
+            axios.post( '/users/admin_register', user)
                 .then(response => {
                     this.setState({
                         firstname: '',

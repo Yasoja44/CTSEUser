@@ -140,7 +140,7 @@ class Register extends Component {
             let message = "Please enter the valid phone No"
             RegisterFail(message);
         } else {
-            axios.post('10.48.7.88:5000/users/register', user)
+            axios.post('/users/register', user)
                 .then(response => {
                     RegisteredAlert();
                 })

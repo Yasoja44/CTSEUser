@@ -53,7 +53,7 @@ class GetAllUsers extends Component {
 
         axios({
             method: 'get',
-            url: '10.48.7.88:5000/users/all',
+            url: '/users/all',
             headers: {
                 Authorization: token
             },
@@ -73,7 +73,7 @@ class GetAllUsers extends Component {
     };
     onDelete(id){
         if(window.confirm("Are you sure you want to delete this account?")) {
-            axios.delete(`10.48.7.88:5000/users/delete/${id}`, {
+            axios.delete(`/users/delete/${id}`, {
                 headers: {
                     Authorization: this.state.token
                 }

@@ -154,7 +154,7 @@ class Profile extends Component {
         })
         axios({
             method: 'get',
-            url: '10.48.7.88:5000/users/',
+            url: '/users/',
             headers: {
                 Authorization: token
             },
@@ -214,7 +214,7 @@ class Profile extends Component {
             FailAlert(message);
         }else {
 
-            axios.put('10.48.7.88:5000/users/update', user, {
+            axios.put('/users/update', user, {
                 headers: {Authorization: this.state.token}
             }).then(response => {
                 let message = "User Update"
@@ -245,7 +245,7 @@ class Profile extends Component {
             let message = "User Delete"
             SuccessAlert(message)
             if(window.confirm("Are you sure you want to delete this account?")) {
-                await axios.delete(`10.48.7.88:5000/users/delete/${id}`, {
+                await axios.delete(`/users/delete/${id}`, {
                     headers: {Authorization: this.state.token}
 
                 })
@@ -268,7 +268,7 @@ class Profile extends Component {
             FailAlert(message);
         }else {
             console.log('DATA TO SEND', user);
-            axios.post(`10.48.7.88:5000/users/admin_update_password/${this.state.id}`, user, {
+            axios.post(`/users/admin_update_password/${this.state.id}`, user, {
                 headers: {Authorization: this.state.token}
             })
                 .then(response => {
