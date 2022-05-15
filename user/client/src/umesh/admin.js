@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import { SERVER_ADDRESS } from '../Constants/Constants';
 
 class Admin extends Component {
     constructor(props) {
@@ -24,7 +23,7 @@ class Admin extends Component {
         })
         axios({
             method: 'get',
-            url: SERVER_ADDRESS + '/users/',
+            url:'10.48.7.88:5000/users/',
             headers: {
                 Authorization: token
             },

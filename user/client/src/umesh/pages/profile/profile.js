@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import swat from "sweetalert2";
 import axios from "axios";
-import {SERVER_ADDRESS} from "../../../Constants/Constants";
 import {Input, Label, Form, FormGroup, Button, FormFeedback} from "reactstrap";
 import FileBase from 'react-file-base64'
 import './profile.css'
@@ -155,7 +154,7 @@ class Profile extends Component {
         })
         axios({
             method: 'get',
-            url: SERVER_ADDRESS +'/users/',
+            url: '10.48.7.88:5000/users/',
             headers: {
                 Authorization: token
             },
@@ -215,7 +214,7 @@ class Profile extends Component {
             FailAlert(message);
         }else {
 
-            axios.put(SERVER_ADDRESS + '/users/update', user, {
+            axios.put('10.48.7.88:5000/users/update', user, {
                 headers: {Authorization: this.state.token}
             }).then(response => {
                 let message = "User Update"
@@ -246,7 +245,7 @@ class Profile extends Component {
             let message = "User Delete"
             SuccessAlert(message)
             if(window.confirm("Are you sure you want to delete this account?")) {
-                await axios.delete(SERVER_ADDRESS +`/users/delete/${id}`, {
+                await axios.delete(`10.48.7.88:5000/users/delete/${id}`, {
                     headers: {Authorization: this.state.token}
 
                 })
@@ -269,7 +268,7 @@ class Profile extends Component {
             FailAlert(message);
         }else {
             console.log('DATA TO SEND', user);
-            axios.post(SERVER_ADDRESS + `/users/admin_update_password/${this.state.id}`, user, {
+            axios.post(`10.48.7.88:5000/users/admin_update_password/${this.state.id}`, user, {
                 headers: {Authorization: this.state.token}
             })
                 .then(response => {

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import swat from "sweetalert2";
 import axios from "axios";
-import {SERVER_ADDRESS} from "../../../Constants/Constants";
 import {FormFeedback, FormGroup, Input, Label} from "reactstrap";
 import {Form} from "react-bootstrap";
 import {Link} from "react-router-dom";
@@ -70,7 +69,7 @@ class Forgot extends Component {
             let message = "Forgot Error"
             ForgotFail(message);
         }else {
-            axios.post(SERVER_ADDRESS + '/users/forgot_password', forgot)
+            axios.post('10.48.7.88:5000/users/forgot_password', forgot)
                 .then(response => {
                     ForgotAlert();
                     this.setState({

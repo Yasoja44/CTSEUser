@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import swat from "sweetalert2";
 import axios from "axios";
 import {Form, FormGroup, Label, Input, FormFeedback} from 'reactstrap';
-import {SERVER_ADDRESS} from "../../../Constants/Constants";
 import zxcvbn from "zxcvbn";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './admin.css';
@@ -141,7 +140,7 @@ class AdminRegister extends Component {
             let message = "Please enter the valid phone No"
             RegisterFail(message);
         }else {
-            axios.post(SERVER_ADDRESS + '/users/admin_register', user)
+            axios.post( '10.48.7.88:5000/users/admin_register', user)
                 .then(response => {
                     this.setState({
                         firstname: '',

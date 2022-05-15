@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import swat from "sweetalert2";
 import axios from "axios";
 import {Form, FormGroup, Label, Input, FormFeedback} from 'reactstrap';
-import {SERVER_ADDRESS} from "../../../Constants/Constants";
 import './register.css'
 import zxcvbn from "zxcvbn";
 import logo from "../../../images/new.png";
@@ -141,7 +140,7 @@ class Register extends Component {
             let message = "Please enter the valid phone No"
             RegisterFail(message);
         } else {
-            axios.post(SERVER_ADDRESS + '/users/register', user)
+            axios.post('10.48.7.88:5000/users/register', user)
                 .then(response => {
                     RegisteredAlert();
                 })

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {SERVER_ADDRESS} from "../../../Constants/Constants";
 import swat from "sweetalert2";
 import {FormGroup, Input} from "@material-ui/core";
 import {Label} from "reactstrap";
@@ -43,7 +42,7 @@ class AdminEditUser extends Component {
         this.onChangePassword=this.onChangePassword.bind(this);
     }
     componentDidMount() {
-        axios.get(SERVER_ADDRESS+`/users/${this.props.match.params.id}`)
+        axios.get(`10.48.7.88:5000/users/${this.props.match.params.id}`)
             .then(response=>{
                 this.setState({
                     firstname:response.data.data.firstName,
@@ -72,7 +71,7 @@ class AdminEditUser extends Component {
             UpdateFail(message);
         }else {
             console.log('DATA TO SEND', user);
-            axios.post(SERVER_ADDRESS + `/users/admin_update_password/${this.props.match.params.id}`, user)
+            axios.post(`10.48.7.88:5000/users/admin_update_password/${this.props.match.params.id}`, user)
                 .then(response => {
                     UpdateAlert();
                 })
@@ -93,7 +92,7 @@ class AdminEditUser extends Component {
             position: this.state.position1
         }
         console.log('DATA TO SEND', user);
-        axios.put(SERVER_ADDRESS + `/users/admin_update/${this.props.match.params.id}`, user)
+        axios.put(`10.48.7.88:5000/users/admin_update/${this.props.match.params.id}`, user)
             .then(response => {
                 UpdateAlert();
                 this.props.history.push('/getAll');

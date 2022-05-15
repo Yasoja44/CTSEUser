@@ -15,7 +15,6 @@ import {
 } from 'reactstrap';
 import Avatar from 'react-avatar';
 import {Button} from "react-bootstrap";
-import { SERVER_ADDRESS } from '../../Constants/Constants';
 
 class Header extends Component {
     constructor(props) {
@@ -104,7 +103,7 @@ class Header extends Component {
         })
         axios({
             method: 'get',
-            url: SERVER_ADDRESS + '/users/',
+            url: '10.48.7.88:5000/users/',
             headers: {
                 Authorization: token
             },

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import swat from "sweetalert2";
 import axios from "axios";
-import {SERVER_ADDRESS} from "../../../Constants/Constants";
 import {FormFeedback, FormGroup, Input, Label} from "reactstrap";
 import {Form} from "react-bootstrap";
 import {Link} from "react-router-dom";
@@ -94,7 +93,7 @@ class Reset extends Component {
             let message = "Password Error"
             RegisterFail(message);
         }else {
-            axios.post(SERVER_ADDRESS + '/users/reset_password', user, {
+            axios.post('10.48.7.88:5000/users/reset_password', user, {
                 headers: {Authorization: this.state.token}
             })
                 .then(response => {

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import {showErrMsg, showSuccessMsg} from '../umesh/notification/notification'
-import { SERVER_ADDRESS } from '../Constants/Constants'
 
 function ConfirmEmail() {
     const {auth_token} = useParams()
@@ -13,7 +12,7 @@ function ConfirmEmail() {
         if(auth_token){
             const confirmEmail = async () => {
                 try {
-                    const res = await axios.post(SERVER_ADDRESS + '/users/activate', {auth_token})
+                    const res = await axios.post('10.48.7.88:5000/users/activate', {auth_token})
                     setSuccess(res.data.msg)
                 } catch (err) {
                     err.response.data.msg && setErr(err.response.data.msg)

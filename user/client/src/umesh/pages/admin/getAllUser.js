@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
 import swat from "sweetalert2";
-import {SERVER_ADDRESS} from "../../../Constants/Constants";
 import {DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'reactstrap';
 import jsPDF from "jspdf";
 import 'jspdf-autotable'
@@ -54,7 +53,7 @@ class GetAllUsers extends Component {
 
         axios({
             method: 'get',
-            url: SERVER_ADDRESS+'/users/all',
+            url: '10.48.7.88:5000/users/all',
             headers: {
                 Authorization: token
             },
@@ -74,7 +73,7 @@ class GetAllUsers extends Component {
     };
     onDelete(id){
         if(window.confirm("Are you sure you want to delete this account?")) {
-            axios.delete(SERVER_ADDRESS + `/users/delete/${id}`, {
+            axios.delete(`10.48.7.88:5000/users/delete/${id}`, {
                 headers: {
                     Authorization: this.state.token
                 }
