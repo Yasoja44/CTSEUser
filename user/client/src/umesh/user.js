@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
+import { SERVER_ADDRESS } from '../Constants/Constants';
 
 class User extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class User extends Component {
         })
         axios({
             method: 'get',
-            url: 'http://localhost:5000/users/',
+            url: SERVER_ADDRESS + '/users/',
             headers: {
                 Authorization: token
             },
