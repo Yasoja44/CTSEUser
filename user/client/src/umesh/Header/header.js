@@ -57,7 +57,7 @@ class Header extends Component {
         window.location.replace('/getAll');
     }
     AddStock = e => {
-        window.location.replace('/adminCreateStockCategory');
+        window.location.assign('http://34.69.87.244:3000/adminCreateStockCategory');
     }
     ViewStock = e => {
         window.location.replace('/adminViewStockCategory');
